@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой первый сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="logo">MyPortfolio.</div>
+        <nav class="nav-links">
+            <a href="#about">Обо мне</a>
+            <a href="#services">Услуги</a>
+            <a href="https://t.me/Iovemeforever" target="_blank" class="nav-btn">Telegram</a>
+        </nav>
+    </header>
+
+    <!-- Добавим якорь для секции "Обо мне", чтобы ссылка работала -->
+    <section id="about" class="card">
+        <h1>Привет, мир!</h1>
+        <p>Это мой самый первый сайт, созданный с помощью AI.</p>
+
+        <section class="card">
+            <h2>Обо мне</h2>
+            <p>Мне 18 лет, я студент и изучаю веб-разработку с помощью AI.</p>
+            <ul>
+                <li>HTML</li>
+                <li>Учусь работать с AI</li>
+                <li>Цель: делать сайты для бизнеса</li>
+            </ul>
+        </section>
+
+        <!-- Кнопка-ссылка для связи в Telegram -->
+        <a href="https://t.me/Iovemeforever" class="cta-button tiffany" target="_blank">
+            Связаться со мной
+        </a>
+
+        <!-- Кнопка прокрутки к навыкам -->
+        <a href="#skills" class="scroll-button">Что я умею ↓</a>
+
+        <!-- Секция навыков -->
+        <section id="skills" class="skills-section">
+            <div class="skill-card">учиться</div>
+            <div class="skill-card">стремиться</div>
+            <div class="skill-card">воображать</div>
+        </section>
+    <!-- Секция "Оставить заявку" -->
+    <section id="contact" class="card">
+        <h2>Оставить заявку</h2>
+        <p>Напиши мне, и я отвечу в течение 24 часов.</p>
+
+        <!-- Секция "Оставить заявку" -->
+<section id="contact" class="card">
+    <h2>Оставить заявку</h2>
+    <p>Напиши мне, и я отвечу в течение 24 часов.</p>
+
+    <!-- Форма для Web3Forms (работает без JavaScript!) -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="lead-form">
+        
+        <!-- СЮДА ВСТАВЬ СВОЙ ACCESS KEY ОТ WEB3FORMS -->
+        <input type="hidden" name="access_key" value="97d40f94-e32a-4ee1-8b94-a0beb2817441">
+        
+        <!-- Тема письма, которое придёт тебе на почту -->
+        <input type="hidden" name="subject" value="Новая заявка с сайта-визитки!">
+        
+        <!-- Поля формы (важно: у них есть атрибут name) -->
+        <input type="text" name="name" placeholder="Твоё имя" required>
+        <input type="tel" name="phone" placeholder="Телефон или @telegram" required>
+        <textarea name="message" placeholder="Что нужно сделать? (сайт, магазин, лендинг...)" rows="4" required></textarea>
+        
+        <!-- Кнопка отправки -->
+        <button type="submit" class="submit-btn">Отправить заявку</button>
+    </form>
+</section>
+    </section>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <p>© 2026 MyPortfolio. Сделано с помощью AI.</p>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

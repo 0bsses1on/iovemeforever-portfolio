@@ -1,0 +1,322 @@
+/* ============================================
+   ПЕРЕМЕННЫЕ — чёрно-серая палитра
+   ============================================ */
+:root {
+    --bg: #0a0a0a;
+    --card: #1a1a1a;
+    --text: #e5e5e5;
+    --muted: #8a8a8a;
+    --accent: #0ABAB5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 44px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-size: 17px;
+}
+
+.card {
+    background-color: var(--card);
+    padding: 32px;
+    border-radius: 16px;
+    margin-top: 32px;
+    border: 1px solid #333333;
+}
+
+ul {
+    list-style: none;
+    margin-top: 16px;
+}
+
+li {
+    padding: 12px 0;
+    border-bottom: 1px solid #333333;
+    color: var(--text);
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li::before {
+    content: "→ ";
+    color: var(--accent);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 32px auto 0 auto;
+    padding: 16px 32px;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    filter: brightness(0.9);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button.tiffany {
+    background-color: #0ABAB5;
+}
+
+.cta-button.tiffany:hover {
+    background-color: #099a96;
+}
+
+.scroll-button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0 auto;
+    padding: 14px 28px;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.skills-section {
+    margin-top: 100px;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    width: 135px;
+    height: 135px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-card:hover {
+    background-color: #808080;
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+}/* ============================================
+   ШАПКА САЙТА (HEADER)
+   ============================================ */
+.site-header {
+    display: flex;              /* Включаем Flexbox */
+    justify-content: space-between; /* Логотип слева, меню справа */
+    align-items: center;        /* Выравниваем по вертикали по центру */
+    padding: 20px 0;            /* Отступы сверху и снизу */
+    margin-bottom: 60px;        /* Отступ от шапки до контента */
+    border-bottom: 1px solid #333333; /* Тонкая линия снизу */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent); /* Бирюзовый цвет (Tiffany) */
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Расстояние между ссылками */
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent); /* При наведении ссылка становится бирюзовой */
+}
+
+/* Кнопка в меню */
+.nav-btn {
+    background-color: var(--accent);
+    color: #0a0a0a !important; /* Чёрный текст на бирюзовом фоне */
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.nav-btn:hover {
+    filter: brightness(1.1); /* Чуть светлее при наведении */
+    color: #0a0a0a !important;
+}/* ============================================
+   АДАПТИВНОСТЬ (ДЛЯ ТЕЛЕФОНОВ)
+   Срабатывает, если ширина экрана меньше 768px
+   ============================================ */
+@media (max-width: 768px) {
+    
+    /* 1. Шапка: меняем направление на колонку */
+    .site-header {
+        flex-direction: column; /* Элементы встают друг под другом */
+        gap: 20px;
+        align-items: flex-start; /* Прижимаем к левому краю */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Ссылки в меню тоже встают в колонку */
+        align-items: flex-start;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* 2. Карточки навыков/услуг: растягиваем на всю ширину */
+    .skills-section {
+        flex-direction: column; /* Карточки встают друг под другом */
+        align-items: center;
+    }
+
+    .skill-card {
+        width: 100%; /* Карточка занимает всю ширину экрана */
+        max-width: 300px; /* Но не шире 300px, чтобы не была гигантской */
+    }
+
+    /* 3. Заголовки делаем чуть меньше для телефона */
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+}/* ============================================
+   ФОРМА ЗАЯВКИ
+   ============================================ */
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.lead-form input,
+.lead-form textarea {
+    background-color: #0a0a0a;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--text);
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.lead-form input:focus,
+.lead-form textarea:focus {
+    outline: none;
+    border-color: var(--accent); /* Бирюзовая рамка при клике */
+}
+
+.submit-btn {
+    background-color: var(--accent);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-status {
+    font-size: 15px;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+.form-status.success { color: #4ade80; }  /* зелёный */
+.form-status.error   { color: #f87171; }  /* красный */
+
+/* ============================================
+   ФУТЕР
+   ============================================ */
+.site-footer {
+    margin-top: 80px;
+    padding: 30px 0;
+    border-top: 1px solid #333333;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
