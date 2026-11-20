@@ -486,3 +486,64 @@ li::before {
         max-width: 400px;
     }
 }
+
+/* ============================================
+   СЕКЦИЯ ОТЗЫВОВ
+   ============================================ */
+.reviews-section {
+    margin-top: 40px;
+    padding: 40px 0;
+}
+
+.reviews-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background-color: var(--card);
+    border: 1px solid #333333;
+    border-radius: 16px;
+    padding: 22px 18px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 30px rgba(10, 186, 181, 0.1);
+}
+
+.review-author {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.review-text {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.review-stars {
+    color: var(--accent);
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .review-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
