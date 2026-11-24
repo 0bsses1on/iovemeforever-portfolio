@@ -1,174 +1,484 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой первый сайт</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lovemeforever — Создаю сайты, которые приносят клиентов</title>
+  <meta name="description" content="Разработка сайтов-визиток, лендингов и интернет-магазинов под ключ. Адаптивный дизайн, SEO-оптимизация, поддержка.">
+  
+  <!-- Open Graph для соцсетей -->
+  <meta property="og:title" content="lovemeforever — Создаю сайты, которые приносят клиентов">
+  <meta property="og:description" content="Разработка сайтов под ключ. От 2000₽. Срок от 2 дней.">
+  <meta property="og:type" content="website">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Микроразметка Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "lovemeforever",
+    "description": "Разработка сайтов под ключ",
+    "url": "https://t.me/Iovemeforever",
+    "priceRange": "от 2000₽"
+  }
+  </script>
 </head>
 <body>
 
-    <div class="container">
-    <!-- Шапка сайта -->
-    <header class="site-header">
-        <div class="logo">MyPortfolio.</div>
-        <nav class="nav-links">
-            <a href="#about">Обо мне</a>
-            <a href="#services">Услуги</a>
-            <a href="https://t.me/Iovemeforever" target="_blank" class="nav-btn">Telegram</a>
-        </nav>
-    </header>
+  <!-- Лепестки сакуры (опционально) -->
+  <div class="petals-container" id="petals" aria-hidden="true"></div>
 
-    <!-- Добавим якорь для секции "Обо мне", чтобы ссылка работала -->
-    <section id="about" class="card">
-        <h1>Привет, мир!</h1>
-        <p>Это мой самый первый сайт, созданный с помощью AI.</p>
+  <!-- ================= ШАПКА ================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-full">lovemeforever</span>
+      </a>
 
-        <section class="card">
-            <h2>Обо мне</h2>
-            <p>Мне 18 лет, я студент и изучаю веб-разработку с помощью AI.</p>
-            <ul>
-                <li>HTML</li>
-                <li>Учусь работать с AI</li>
-                <li>Цель: делать сайты для бизнеса</li>
-            </ul>
-        </section>
+      <svg class="sakura-branch" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M400,30 Q350,20 300,28 Q250,35 200,25 Q150,18 100,30 Q70,36 40,32" 
+              stroke="#8b5a6b" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M300,28 Q290,15 280,10" stroke="#8b5a6b" stroke-width="1.5" fill="none"/>
+        <path d="M250,30 Q245,18 240,12" stroke="#8b5a6b" stroke-width="1.5" fill="none"/>
+        <path d="M200,25 Q195,12 190,8" stroke="#8b5a6b" stroke-width="1.5" fill="none"/>
+        <circle cx="280" cy="10" r="3" fill="#ffb7c5"/>
+        <circle cx="240" cy="12" r="2.5" fill="#ffc0cb"/>
+        <circle cx="190" cy="8" r="3" fill="#ffb7c5"/>
+      </svg>
 
-        <!-- Кнопка-ссылка для связи в Telegram -->
-        <a href="https://t.me/Iovemeforever" class="cta-button tiffany" target="_blank">
-            Связаться со мной
+      <nav class="nav-links">
+        <a href="#why">Почему я</a>
+        <a href="#services">Услуги</a>
+        <a href="#process">Процесс</a>
+        <a href="#demo">Примеры</a>
+        <a href="#faq">Вопросы</a>
+        <a href="https://t.me/Iovemeforever" target="_blank" class="nav-btn nav-btn-tg">
+          <svg class="tg-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+          Написать
         </a>
-
-        <!-- Кнопка прокрутки к навыкам -->
-        <a href="#skills" class="scroll-button">Что я умею ↓</a>
-
-        <!-- Секция навыков -->
-        <section id="skills" class="skills-section">
-            <div class="skill-card">учиться</div>
-            <div class="skill-card">стремиться</div>
-            <div class="skill-card">воображать</div>
-        </section>
-    <!-- Секция "Оставить заявку" -->
-         <!-- Секция "Услуги" -->
-    <section id="services" class="services-grid-section">
-        <h2 class="section-title">Что я могу для вас сделать</h2>
-        
-        <div class="services-grid">
-            <!-- Карточка 1: Сайт-визитка -->
-            <div class="service-card">
-                <h3>Сайт-визитка</h3>
-                <div class="price">от 2 000 ₽</div>
-                <p class="service-desc">Идеально для экспертов, репетиторов и малого бизнеса. Рассказывает о вас и собирает заявки.</p>
-                <ul class="service-features">
-                    <li>Адаптивный дизайн (телефон/ПК)</li>
-                    <li>Форма заявки в Telegram/на почту</li>
-                    <li>Размещение в интернете (хостинг)</li>
-                    <li>Срок: 2-3 дня</li>
-                </ul>
-                <a href="#contact" class="service-btn">Заказать</a>
-            </div>
-
-            <!-- Карточка 2: Лендинг (Продающая страница) -->
-            <div class="service-card featured">
-                <div class="badge">Популярное</div>
-                <h3>Лендинг</h3>
-                <div class="price">от 8 990 ₽</div>
-                <p class="service-desc">Одностраничный сайт для запуска рекламы или продажи конкретного товара/услуги.</p>
-                <ul class="service-features">
-                    <li>Продающая структура и тексты</li>
-                    <li>Анимации и современный дизайн</li>
-                    <li>Подключение аналитики (Яндекс.Метрика)</li>
-                    <li>Срок: 5-7 дней</li>
-                </ul>
-                <a href="#contact" class="service-btn">Заказать</a>
-            </div>
-
-            <!-- Карточка 3: Интернет-магазин -->
-            <div class="service-card">
-                <h3>Интернет-магазин</h3>
-                <div class="price">от 20 000 ₽</div>
-                <p class="service-desc">Полноценный каталог товаров с корзиной для тех, кто хочет продавать онлайн.</p>
-                <ul class="service-features">
-                    <li>Каталог до 50 товаров</li>
-                    <li>Корзина и оформление заказа</li>
-                    <li>Интеграция с платёжными системами</li>
-                    <li>Срок: 10-14 дней</li>
-                </ul>
-                <a href="#contact" class="service-btn">Заказать</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция "Отзывы клиентов" -->
-    <section id="reviews" class="reviews-section">
-        <h2 class="section-title">Отзывы клиентов</h2>
-
-        <div class="reviews-grid">
-            <article class="review-card">
-                <p class="review-author"><strong>Иван, владелец кофейни «Бодрое утро»</strong></p>
-                <p class="review-text"><em>Сайт сделали за 2 дня, заявки пошли на следующий день! Очень доволен.</em></p>
-                <p class="review-stars" aria-label="Оценка 5 из 5">★★★★★</p>
-            </article>
-
-            <article class="review-card">
-                <p class="review-author"><strong>Мария, мастер маникюра</strong></p>
-                <p class="review-text"><em>Клиенты теперь записываются через форму на сайте, очень удобно. Рекомендую!</em></p>
-                <p class="review-stars" aria-label="Оценка 5 из 5">★★★★★</p>
-            </article>
-
-            <article class="review-card">
-                <p class="review-author"><strong>Алексей, барбершоп «Стриж»</strong></p>
-                <p class="review-text"><em>Профессионально и быстро. Сайт выглядит дорого, клиенты оценили.</em></p>
-                <p class="review-stars" aria-label="Оценка 5 из 5">★★★★★</p>
-            </article>
-        </div>
-    </section>
-
-    <section id="contact" class="card">
-
-        <!-- Секция "Оставить заявку" -->
-<section id="contact" class="card">
-    <h2>Оставить заявку</h2>
-    <p>Напиши мне, и я отвечу в течение 24 часов.</p>
-
-    <!-- Форма для Web3Forms (работает без JavaScript!) -->
-    <form action="https://api.web3forms.com/submit" method="POST" class="lead-form">
-        
-        <!-- СЮДА ВСТАВЬ СВОЙ ACCESS KEY ОТ WEB3FORMS -->
-        <input type="hidden" name="access_key" value="97d40f94-e32a-4ee1-8b94-a0beb2817441">
-        
-        <!-- Тема письма, которое придёт тебе на почту -->
-        <input type="hidden" name="subject" value="Новая заявка с сайта-визитки!">
-        
-        <!-- Поля формы (важно: у них есть атрибут name) -->
-        <input type="text" name="name" placeholder="Твоё имя" required>
-        <input type="tel" name="phone" placeholder="Телефон или @telegram" required>
-        <textarea name="message" placeholder="Что нужно сделать? (сайт, магазин, лендинг...)" rows="4" required></textarea>
-        
-        <!-- Кнопка отправки -->
-        <button type="submit" class="submit-btn">Отправить заявку</button>
-    </form>
-</section>
-    </section>
-
-    <!-- Футер -->
-    <footer class="site-footer">
-        <div class="footer-social">
-            <a href="https://t.me/Iovemeforever" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M21.5 4.3 2.7 11.5c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.9 5.8c.2.7.1 1 .9 1 .6 0 .8-.3 1.1-.6l2.7-2.6 5.6 4.1c1 .6 1.8.3 2-.9l3.6-16.1c.3-1.4-.5-2-1.6-1.5zM8.8 14.6l9.4-5.9c.5-.3.9-.1.5.2l-7.7 7-.3 3.2-1.9-4.5z"/>
-                </svg>
-            </a>
-            <a href="https://wa.me/79522104417" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.9c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.12.11-1.81-.11-.42-.14-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.15-1.53-1.15-2.92 0-1.39.73-2.07 1-2.35.24-.26.64-.38.85-.38h.61c.2 0 .46-.07.72.55.27.64.91 2.22.99 2.38.08.16.13.35.03.56-.1.21-.15.34-.3.52-.15.18-.31.4-.45.54-.15.14-.3.3-.13.58.16.28.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.28.14.44.12.6-.07.16-.19.7-.81.88-1.09.19-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.46.21.53.33.07.12.07.68-.17 1.36z"/>
-                </svg>
-            </a>
-        </div>
-        <p>© 2026 MyPortfolio. Сделано с помощью AI.</p>
-    </footer>
+      </nav>
     </div>
-    <script src="script.js"></script>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__container">
+      
+      <!-- Ключевое сообщение -->
+      <div class="hero-badge">
+        <span class="hero-badge-item">
+          <span class="badge-icon">🏠</span>
+          <span>Сайты-визитки</span>
+        </span>
+        <span class="hero-badge-divider">•</span>
+        <span class="hero-badge-item">
+          <span class="badge-icon">🚀</span>
+          <span>Лендинги</span>
+        </span>
+        <span class="hero-badge-divider">•</span>
+        <span class="hero-badge-item">
+          <span class="badge-icon">🛍️</span>
+          <span>Интернет-магазины</span>
+        </span>
+      </div>
+      <p class="hero-tagline">под ключ · адаптив · скорость · поддержка</p>
+
+      <h1 class="hero__title">Создаю сайты, которые <span class="accent-text">приносят клиентов</span></h1>
+      <p class="hero__subtitle">От идеи до запуска за 2-14 дней. Работаю с частными предпринимателями и малым бизнесом.</p>
+
+      <!-- Статистика -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label">типа сайтов</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="14">0</span>
+          <span class="stat-label">дней макс. срок</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="30">0</span>
+          <span class="stat-label">дней поддержки</span>
+        </div>
+      </div>
+
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">Обсудить проект</a>
+        <a href="#demo" class="btn btn--outline">Посмотреть примеры</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПОЧЕМУ Я ================= -->
+  <section class="why-section" id="why">
+    <div class="container">
+      <h2 class="section-title">Почему выбирают меня</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>Быстро</h3>
+          <p>Сайт-визитка за 2-3 дня, лендинг за 5-7 дней. Не затягиваю сроки.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <h3>Доступно</h3>
+          <p>Цены от 2000₽. Работаю с небольшим бюджетом без потери качества.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <h3>Результат</h3>
+          <p>Сайт не просто красивый — он продаёт. Адаптив, скорость, SEO.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🛡️</div>
+          <h3>Гарантия</h3>
+          <p>30 дней бесплатной поддержки после запуска. Правки без доплат.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= УСЛУГИ ================= -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <h2 class="section-title">Услуги и цены</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>Сайт-визитка</h3>
+          <p class="price">от 2000₽</p>
+          <p class="service-desc">2-3 дня. До 5 страниц, форма заявки, адаптив.</p>
+          <ul class="service-features">
+            <li>Адаптивный дизайн</li>
+            <li>Форма заявки</li>
+            <li>Подключение домена</li>
+            <li>30 дней поддержки</li>
+          </ul>
+          <a href="#contact" class="service-btn">Заказать</a>
+        </div>
+
+        <div class="service-card featured">
+          <span class="badge">Популярное</span>
+          <h3>Лендинг</h3>
+          <p class="price">от 8990₽</p>
+          <p class="service-desc">5-7 дней. Продающая структура, анимации, SEO.</p>
+          <ul class="service-features">
+            <li>Всё из визитки</li>
+            <li>Продающая структура</li>
+            <li>Анимации и эффекты</li>
+            <li>Базовая SEO-оптимизация</li>
+          </ul>
+          <a href="#contact" class="service-btn">Заказать</a>
+        </div>
+
+        <div class="service-card">
+          <h3>Интернет-магазин</h3>
+          <p class="price">от 20000₽</p>
+          <p class="service-desc">10-14 дней. Каталог, корзина, оплата, админка.</p>
+          <ul class="service-features">
+            <li>Всё из лендинга</li>
+            <li>Каталог товаров</li>
+            <li>Корзина и оплата</li>
+            <li>Админ-панель</li>
+          </ul>
+          <a href="#contact" class="service-btn">Заказать</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПРОЦЕСС РАБОТЫ ================= -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <h2 class="section-title">Как я работаю</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3>Брифинг</h3>
+          <p>Обсуждаем ваш проект, цели, целевую аудиторию. Составляю ТЗ.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Дизайн</h3>
+          <p>Создаю макет сайта. Вы видите результат до начала разработки.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Разработка</h3>
+          <p>Верстаю, программирую, тестирую на всех устройствах.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3>Запуск</h3>
+          <p>Публикую сайт, подключаю домен, обучаю вас управлению.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ТЕХНОЛОГИИ ================= -->
+  <section class="tech-section">
+    <div class="container">
+      <h2 class="section-title">Технологии</h2>
+      <div class="tech-grid">
+        <div class="tech-item">HTML5</div>
+        <div class="tech-item">CSS3</div>
+        <div class="tech-item">JavaScript</div>
+        <div class="tech-item">Адаптивная вёрстка</div>
+        <div class="tech-item">SEO-оптимизация</div>
+        <div class="tech-item">Кроссбраузерность</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ДЕМО-ПРОЕКТЫ ================= -->
+  <section class="demo-section" id="demo">
+  <div class="container">
+    <h2 class="section-title">Примеры работ</h2>
+    <p class="section-subtitle">Демо-проекты, созданные для демонстрации навыков</p>
+    
+    <div class="demo-grid">
+      
+      <!-- Демо 1: Сайт-визитка -->
+      <div class="demo-card">
+        <div class="demo-preview demo-preview-1">
+          <div class="demo-mockup">
+            <div class="mockup-header">
+              <div class="mockup-logo">🚗</div>
+              <div class="mockup-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="mockup-hero">
+              <div class="mockup-title"></div>
+              <div class="mockup-subtitle"></div>
+              <div class="mockup-btn"></div>
+            </div>
+          </div>
+          <span class="demo-label">Сайт-визитка</span>
+        </div>
+        <div class="demo-info">
+          <h3>Автосервис "МоторПро"</h3>
+          <p>Сайт-визитка для автосервиса с формой записи, картой и отзывами клиентов.</p>
+          <div class="demo-tags">
+            <span>Адаптив</span>
+            <span>Форма заявки</span>
+            <span>SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Демо 2: Лендинг -->
+      <div class="demo-card">
+        <div class="demo-preview demo-preview-2">
+          <div class="demo-mockup">
+            <div class="mockup-header">
+              <div class="mockup-logo">🧘</div>
+              <div class="mockup-nav">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="mockup-hero">
+              <div class="mockup-title"></div>
+              <div class="mockup-subtitle"></div>
+              <div class="mockup-btn"></div>
+            </div>
+            <div class="mockup-features">
+              <div class="mockup-feature"></div>
+              <div class="mockup-feature"></div>
+              <div class="mockup-feature"></div>
+            </div>
+          </div>
+          <span class="demo-label">Лендинг</span>
+        </div>
+        <div class="demo-info">
+          <h3>Курсы йоги "Намасте"</h3>
+          <p>Продающий лендинг для школы йоги с расписанием занятий, отзывами и формой записи.</p>
+          <div class="demo-tags">
+            <span>Анимации</span>
+            <span>CTA-блоки</span>
+            <span>Мобильная версия</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Демо 3: Интернет-магазин -->
+      <div class="demo-card">
+        <div class="demo-preview demo-preview-3">
+          <div class="demo-mockup">
+            <div class="mockup-header">
+              <div class="mockup-logo">🧶</div>
+              <div class="mockup-nav">
+                <span></span>
+                <span></span>
+                <span class="mockup-cart">🛒</span>
+              </div>
+            </div>
+            <div class="mockup-products">
+              <div class="mockup-product"></div>
+              <div class="mockup-product"></div>
+              <div class="mockup-product"></div>
+            </div>
+          </div>
+          <span class="demo-label">Интернет-магазин</span>
+        </div>
+        <div class="demo-info">
+          <h3>Handmade "Тёплые вещи"</h3>
+          <p>Интернет-магазин вязаных изделий с каталогом товаров, корзиной и онлайн-оплатой.</p>
+          <div class="demo-tags">
+            <span>Каталог</span>
+            <span>Корзина</span>
+            <span>Оплата</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="demo-cta">
+      <p>Хотите такой же сайт для вашего бизнеса?</p>
+      <a href="#contact" class="btn btn--primary">Обсудить проект</a>
+    </div>
+  </div>
+</section>
+
+  <!-- ================= ГАРАНТИИ ================= -->
+  <section class="guarantees-section">
+    <div class="container">
+      <h2 class="section-title">Мои гарантии</h2>
+      <div class="guarantees-grid">
+        <div class="guarantee-card">
+          <div class="guarantee-icon">🔄</div>
+          <h3>Правки без доплат</h3>
+          <p>До запуска вы можете вносить неограниченное количество правок.</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-icon">⏰</div>
+          <h3>Сроки</h3>
+          <p>Если не уложусь в срок — скидка 10% за каждый день просрочки.</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-icon">🛠️</div>
+          <h3>Поддержка</h3>
+          <p>30 дней бесплатной поддержки после запуска. Мелкие правки включены.</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-icon">💳</div>
+          <h3>Оплата</h3>
+          <p>50% предоплата, 50% после вашего утверждения финальной версии.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Сколько стоит сайт?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Цена зависит от типа сайта. Сайт-визитка — от 2000₽ (2-3 дня), лендинг — от 8990₽ (5-7 дней), интернет-магазин — от 20000₽ (10-14 дней). Точную стоимость рассчитаю после обсуждения вашего проекта.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Как быстро вы сделаете сайт?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Простой сайт-визитка — 2-3 дня, лендинг — 5-7 дней, интернет-магазин — 10-14 дней. Срочные заказы обсуждаются индивидуально.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Что входит в стоимость?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Адаптивный дизайн (телефон + ПК), форма заявки, подключение домена и хостинга, базовая SEO-оптимизация, бесплатная поддержка 30 дней после запуска.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Что если мне не понравится результат?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>До запуска вы видите сайт и можете вносить правки. После запуска — 30 дней бесплатной поддержки для мелких изменений.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Как происходит оплата?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>50% предоплата перед началом работы, 50% после вашего утверждения финальной версии. Работаю по договору или без — как удобно.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ФОРМА ЗАЯВКИ ================= -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Оставить заявку</h2>
+      <p class="contact-subtitle">Расскажите о вашем проекте — отвечу в течение дня</p>
+
+      <form class="lead-form" id="contactForm">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+        </div>
+        <textarea name="message" rows="5" placeholder="Расскажите о проекте: какой сайт нужен, сроки, бюджет"></textarea>
+        <button type="submit" class="submit-btn">Отправить заявку</button>
+        <div class="form-status" id="formStatus"></div>
+        <p class="form-alt">Или напишите сразу в Telegram: 
+          <a href="https://t.me/Iovemeforever" target="_blank" class="tg-link">@Iovemeforever</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= ФУТЕР ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-social">
+        <a href="https://t.me/Iovemeforever" target="_blank" class="social-link" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+      <p>© 2026 lovemeforever · <a href="https://t.me/Iovemeforever" target="_blank" class="footer-tg">@Iovemeforever</a></p>
+    </div>
+  </footer>
+
+  <!-- Плавающая кнопка Telegram -->
+  <a href="https://t.me/Iovemeforever" target="_blank" class="telegram-float" aria-label="Написать в Telegram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>
-

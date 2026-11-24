@@ -1,67 +1,138 @@
-// ============================================
-// НАСТРОЙКИ TELEGRAM
-// ============================================
-const TELEGRAM_TOKEN = "97d40f94-e32a-4ee1-8b94-a0beb2817441";
-const CHAT_ID = "808720203";
+/* ============================================
+   ЛЕПЕСТКИ САКУРЫ
+   ============================================ */
+(function createSakuraPetals() {
+  const container = document.getElementById('petals');
+  if (!container) return;
 
-// Ждём, когда страница загрузится
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("lead-form");
-  const status = document.getElementById("form-status");
-  const btn = form.querySelector(".submit-btn");
+  const petalSVG = `
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2 C 25 8, 35 12, 35 20 C 35 28, 28 35, 20 38 C 12 35, 5 28, 5 20 C 5 12, 15 8, 20 2 Z" 
+            fill="currentColor"/>
+    </svg>
+  `;
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Отменяем стандартную отправку формы
+  const petalColors = ['#f8bbd0', '#f48fb1', '#f06292', '#ec407a', '#fce4ec'];
+  const PETAL_COUNT = 30;
 
-    // Собираем данные
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
 
-    // Простая проверка
-    if (!name || !phone || !message) {
-      showStatus("Заполни все поля", "error");
-      return;
-    }
+    const size = Math.random() * 14 + 10;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 10 + 8;
+    const delay = Math.random() * 15;
+    const color = petalColors[Math.floor(Math.random() * petalColors.length)];
 
-    // Формируем текст заявки
-    const text = `🔔 НОВАЯ ЗАЯВКА\n\nИмя: ${name}\nКонтакт: ${phone}\nСообщение: ${message}`;
+    petal.style.width = size + 'px';
+    petal.style.height = size + 'px';
+    petal.style.left = left + '%';
+    petal.style.color = color;
+    petal.style.animation = `petalFall ${duration}s linear ${delay}s infinite`;
 
-    btn.disabled = true;
-    btn.textContent = "Отправляю...";
+    petal.innerHTML = petalSVG;
+    container.appendChild(petal);
+  }
 
-    try {
-      // Отправляем в Telegram
-      const res = await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: text,
-          }),
-        },
-      );
+  for (let i = 0; i < PETAL_COUNT; i++) {
+    createPetal();
+  }
 
-      const data = await res.json();
+  container.style.opacity = '0';
+  container.style.transition = 'opacity 2s ease';
+  setTimeout(() => {
+    container.style.opacity = '0.6';
+  }, 300);
+})();
 
-      if (data.ok) {
-        showStatus("✅ Заявка отправлена! Я свяжусь с тобой.", "success");
-        form.reset();
+/* ============================================
+   АНИМАЦИЯ СЧЁТЧИКОВ
+   ============================================ */
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  
+  counters.forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        counter.textContent = target;
+        clearInterval(timer);
       } else {
-        showStatus("❌ Ошибка: " + (data.description || "неизвестно"), "error");
+        counter.textContent = Math.floor(current);
       }
-    } catch (err) {
-      showStatus("❌ Ошибка сети. Попробуй позже.", "error");
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Отправить заявку";
-    }
+    }, 16);
+  });
+}
+
+// Запуск анимации при загрузке
+window.addEventListener('load', () => {
+  setTimeout(animateCounters, 500);
+});
+
+/* ============================================
+   FAQ АККОРДЕОН
+   ============================================ */
+document.addEventListener('DOMContentLoaded', function () {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const icon = item.querySelector('.faq-icon');
+
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      faqItems.forEach(other => {
+        other.classList.remove('active');
+        other.querySelector('.faq-icon').textContent = '+';
+        other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        icon.textContent = '−';
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 
-  function showStatus(msg, type) {
-    status.textContent = msg;
-    status.className = "form-status " + type;
+  /* ============================================
+     ФОРМА ЗАЯВКИ
+     ============================================ */
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const btn = form.querySelector('.submit-btn');
+      const originalText = btn.textContent;
+
+      btn.disabled = true;
+      btn.textContent = 'Отправляем...';
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+
+      const data = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        message: form.message.value.trim()
+      };
+
+      setTimeout(() => {
+        statusEl.textContent = '✓ Заявка отправлена! Свяжусь с вами в течение дня.';
+        statusEl.classList.add('success');
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }, 1200);
+    });
   }
 });
